@@ -73,13 +73,57 @@
         //    - Method Signature: bool CanVote(int age)
         //    - Returns true if the candidate can vote, false otherwise.
         //    - Hint: Use `int.Parse()` or the safer `int.TryParse()` for extra practice in handling user input.
-        
-        
+
+        public static void CanVote()
+        {
+            Console.WriteLine("Please enter your age:");
+            var canParse = int.TryParse(Console.ReadLine(), out int userAge);
+            
+            while(canParse == false)
+            {
+                Console.WriteLine("Please enter a valid age:");
+                canParse = int.TryParse(Console.ReadLine(), out userAge);
+            }
+
+            if (userAge >= 18)
+            {
+                Console.WriteLine($"Congrats, {userAge} is old enough to vote!");
+            }
+            else
+            {
+                {
+                    Console.WriteLine($"Sorry, {userAge} is not old enough to vote!");
+                }
+            }
+            
+            
+        }
         
         // Heatin' Up Section:
         // 1. Write a method that checks if an integer (provided by the user) is within the range of -10 to 10.
         //    - Method Signature: bool IsInRange(int number)
         //    - Returns true if the number is within the range, false otherwise.
+
+        public static void TenRange()
+        {
+            Console.WriteLine("Please give me a number:");
+            var canParse = int.TryParse(Console.ReadLine(), out int userNumber);
+
+            while (!canParse)
+            {
+                Console.WriteLine("Please enter a valid number:");
+                canParse = int.TryParse(Console.ReadLine(), out userNumber);
+            }
+
+            if (userNumber <= 10 && userNumber >= -10)
+            {
+                Console.WriteLine($"{userNumber} is in the ten range!");
+            }
+            else
+            {
+                Console.WriteLine($"{userNumber} is not in the ten range!");
+            }
+        }
         
         // 2. Write a method that displays the multiplication table (from 1 to 12) for a given integer.
         //    - Method Signature: void DisplayMultiplicationTable(int number)
@@ -94,6 +138,8 @@
             //TwoNumbersSame(1, 2);
             //EvenOrOdd(2 );
             //IsPositive(2);
+            //CanVote();
+            //TenRange();
         }
     }
 }
